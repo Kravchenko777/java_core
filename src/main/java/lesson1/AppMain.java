@@ -31,23 +31,21 @@ public class AppMain {
         String str2 = "123";
         String str3 = new String("123");
         System.out.println("Сравнение строк ==" +(str1==str2) +" " +(str1==str3));
-        System.out.println("Сравнение строк equals " +(str1.equals(str2)) +" " +(str1.equals(str3)));
-        */
+        System.out.println("Сравнение строк equals " +(str1.equals(str2)) +" " +(str1.equals(str3)));*/
         //Полиморфизм
-        /*        Class_name_1 class_name_1 = new Class_name_1("str",0);
-        Class_name_1 class_name_1_ = new Class_name_2();
-        System.out.println("1: " + class_name_1.test());
-        System.out.println("2: " + class_name_1_.test());
-        */
+//        Class_name_1 class_name_1 = new Class_name_1("str",0);
+//        Class_name_1 class_name_1_ = new Class_name_2();
+//        System.out.println("1: " + class_name_1.test());
+//        System.out.println("2: " + class_name_1_.test());
 
         //интерфейсы
-        /*        Interface_name interface_name = new Class_name_3();
+/*                Interface_name interface_name = new Class_name_3();
         Interface_name interface_name_ = new Class_name_3_();
         interface_name.test();
         interface_name_.test();*/
 
         //перечисления
-        PrivateValue privateValue = PrivateValue.FRIDAY;
+/*        PrivateValue privateValue = PrivateValue.FRIDAY;
         System.out.println(privateValue.getValue());
 
         switch (EnumValue.THURSDAY) {
@@ -58,13 +56,16 @@ public class AppMain {
                 System.out.println("Результат 2");
                 break;
 
-            default: System.out.println("Нет результата");
+            default:
+                System.out.println("Нет результата");
+        }
 
                 EnumValue sunday = EnumValue.valueOf("SUNDAY");
                 System.out.println(sunday.getTitle());
 
-                System.out.println(Arrays.toString(EnumValue.values()));
-        }
+                System.out.println(Arrays.toString(EnumValue.values()));*/
+
+
 
     }
 

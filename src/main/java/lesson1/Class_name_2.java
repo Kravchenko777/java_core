@@ -9,6 +9,11 @@ public class Class_name_2 extends Class_name_1 {
     public Class_name_2(){
         super("test1",100);
         System.out.println("Constructor block class2");
+
+    }
+
+    public Class_name_2(String str){
+
     }
 
     @Override
