@@ -2,7 +2,7 @@ package lesson1.enums;
 
     public enum EnumValue {
 
-       /* SUNDAY,
+/*        SUNDAY,
         MONDAY,
         TUESDAY,
         WEDNESDAY,

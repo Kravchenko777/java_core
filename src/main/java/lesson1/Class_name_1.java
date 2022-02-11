@@ -24,13 +24,13 @@ public class Class_name_1 {
         this.value_name_3 = LocalDate.now();
     }
 
+    public Class_name_1(){}
+
     public String getValue_name_1() {
         return value_name_1;
     }
 
-    public void setValue_name_1(String value_name_1) {
-        this.value_name_1 = value_name_1;
-    }
+
 
     public Integer getValue_name_2() {
         return value_name_2;

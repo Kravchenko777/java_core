@@ -1,6 +1,7 @@
 package lesson1.interfaces;
 
 public class Class_name_3_ implements Interface_name{
+
     @Override
     public void test() {
         System.out.println("Другой результат");
@@ -10,4 +11,6 @@ public class Class_name_3_ implements Interface_name{
     public Boolean test(Boolean value) {
         return null;
     }
+
+
 }

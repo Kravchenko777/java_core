@@ -9,7 +9,17 @@ final public class Class_name_5 {
         value2="345";
     }
 
-    final void test(){
+    void test(){
         System.out.println(value1);
+    }
+
+    String test(String str, Integer int1){
+        System.out.println(str);
+
+        return "";
+    }
+
+    void test(Integer int1,String str){
+        System.out.println(str);
     }
 }
