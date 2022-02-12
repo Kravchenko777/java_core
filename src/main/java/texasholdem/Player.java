@@ -43,4 +43,16 @@ public class Player extends Human {
         hand.add(first);
         hand.add(second);
     }
+    /**
+    * possible public in Table class:
+     * int numberPlayersOnTable,int bigBlind
+     *
+     * need input logArrayAllGame.add(actionOnTableOneGame) as public Table metod
+     */
+    public int movePockerChips (ArrayList<Card> cardOnTable,ArrayList<> actionOnTable,int myNumberPlaceOnTable, int numberPlayersOnTable,int bigBlind)
+        int  chipsForMove=(int)bigBlind*4Math.random();
+      //  int myBankroll; if (myBankrol-chipsForMove<0) {chipsForMove=myBankRoll;}
+    return chipsForMove;// if return = 0 then fold or check
+
+
 }
