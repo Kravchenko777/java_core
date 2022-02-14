@@ -8,7 +8,7 @@ public class AppLogger {
 
     public static void main(String[] args) throws MyException {
         MyTestClass myTestClass = new MyTestClass();
-        myTestClass.test();
+        myTestClass.test(null);
 
         try {
             myTestClass.test2();

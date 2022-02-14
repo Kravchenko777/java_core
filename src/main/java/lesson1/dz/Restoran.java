@@ -18,28 +18,28 @@ public class Restoran {
         for(Person person: group.getPeoples()){
             result += "Имя клиента: " + person.getName()+ " " + '\n';
             int value = person.getCanEatCalories();
-            testBreakfast(value)
-                    .testDinner(value)
-                    .testLunch(value);
+            testBreakfast(value);
+            testDinner(value);
+            testLunch(value);
 
         }
 
             return result;
     }
 
-    private Restoran testBreakfast(int value){
+    private void testBreakfast(int value){
         if(value<breakfast) result += "Завтрак - наелся "+ '\n';
-        return this;
+
     }
 
-    private Restoran testDinner(int value){
+    private void testDinner(int value){
         if(value<dinner + 50) result += "Ужин - наелся "+ '\n';
-        return this;
+
     }
 
-    private Restoran testLunch(int value){
+    private void testLunch(int value){
         if(value<lunch - 100) result += "Обед - наелся "+ '\n';
-        return this;
+
     }
 
 }

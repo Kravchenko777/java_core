@@ -5,8 +5,9 @@ import java.io.IOException;
 
 public class MyTestClass {
 
-    public void test() throws MyException {
-        throw new MyException("Что то пошло не так");
+    public void test(String str) throws MyException {
+        if(str==null) throw new MyException("Что то пошло не так");
+        //
     }
 
     public void test2() throws MyException {

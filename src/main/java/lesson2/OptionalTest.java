@@ -6,6 +6,7 @@ public class OptionalTest {
 
     public static void main(String[] args) {
         System.out.println(getValue().isPresent());
+        if(getValue().isPresent()) getValue().get();
     }
 
     public static Optional<String> getValue(){
