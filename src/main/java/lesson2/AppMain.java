@@ -27,18 +27,5 @@ public class AppMain {
        // Class.forName("myClass");
     }
 
-    public void myTest() throws MyException {
-        MyTestClass myTestClass = new MyTestClass();
-        myTestClass.test();
 
-        myTestClass.test2();
-
-        try {
-            myTestClass.test3();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.out.println("Будет выполненно все равно");
-        }
-    }
 }
