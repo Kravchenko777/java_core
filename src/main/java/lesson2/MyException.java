@@ -6,4 +6,8 @@ public class MyException extends Exception{
         super(error);
     }
 
+    @Override
+    public String toString() {
+        return "MyException{}";
+    }
 }
