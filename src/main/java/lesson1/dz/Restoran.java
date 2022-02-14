@@ -1,7 +1,7 @@
 package lesson1.dz;
 
 public class Restoran {
-
+    String result;
     private int breakfast;
     private int dinner;
     private int lunch;
@@ -14,15 +14,32 @@ public class Restoran {
     }
 
     public String doIt(Group group){
-        String result = "Группа номер: "+ group.getName()+ " " + '\n';
+        result = "Группа номер: "+ group.getName()+ " " + '\n';
         for(Person person: group.getPeoples()){
             result += "Имя клиента: " + person.getName()+ " " + '\n';
-            if(person.getCanEatCalories()<breakfast) result += "Завтрак - наелся "+ '\n';
-            if(person.getCanEatCalories()<dinner) result += "Ужин - наелся "+ '\n';
-            if(person.getCanEatCalories()<lunch) result += "Обед - наелся "+ '\n';
+            int value = person.getCanEatCalories();
+            testBreakfast(value)
+                    .testDinner(value)
+                    .testLunch(value);
+
         }
 
             return result;
+    }
+
+    private Restoran testBreakfast(int value){
+        if(value<breakfast) result += "Завтрак - наелся "+ '\n';
+        return this;
+    }
+
+    private Restoran testDinner(int value){
+        if(value<dinner + 50) result += "Ужин - наелся "+ '\n';
+        return this;
+    }
+
+    private Restoran testLunch(int value){
+        if(value<lunch - 100) result += "Обед - наелся "+ '\n';
+        return this;
     }
 
 }
