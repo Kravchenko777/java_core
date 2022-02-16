@@ -17,4 +17,16 @@ public class Pair <T,U>{
     public T getValueT(){
         return valueT;
     }
+
+    public void setValueT(T valueT) {
+        this.valueT = valueT;
+    }
+
+    public U getValueU() {
+        return valueU;
+    }
+
+    public void setValueU(U valueU) {
+        this.valueU = valueU;
+    }
 }

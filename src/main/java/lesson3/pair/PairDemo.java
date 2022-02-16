@@ -7,5 +7,8 @@ public class PairDemo {
         new Pair("key", "value").summ();
         new PairInteger(100, 200).summ();
         new Pair(100, 200).summ();
+
+        Pair<String, Integer> pair = new Pair<>("123",123);
+        pair.setValueT("555");
     }
 }
