@@ -1,6 +1,6 @@
 package lesson3.wildcard;
 
-public class extendExample {
+public class ExtendExample {
 
     public static class Element<T extends Number, Y extends Number> {
 
@@ -39,6 +39,11 @@ public class extendExample {
                     && yelement.doubleValue()>elementAnother.getYelement().doubleValue();
         }
 
+        public Boolean lt(Element<? extends Double,? extends Double> elementAnother){
+            return telement.doubleValue()<elementAnother.getTelement().doubleValue()
+                    && yelement.doubleValue()<elementAnother.getYelement().doubleValue();
+        }
+
 
     }
 
@@ -51,7 +56,9 @@ public class extendExample {
         new Element<Double, Long>(Double.valueOf("100"), 200l).getSumm();
 
         System.out.println(elementIntInt.gt(new Element<Integer, Integer>(50, 70)));
+        // System.out.println(elementIntInt.lt(new Element<Integer, Integer>(150, 270)));
 
         System.out.println(elementIntInt.gt(new Element<Double, Double>(50d, 70d)));
+        System.out.println(elementIntInt.lt(new Element<Double, Double>(150d, 270d)));
     }
 }
