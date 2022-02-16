@@ -1,6 +1,6 @@
 package lesson3.wildcard;
 
-public class extendExample {
+public class ExtendExample {
 
     public static class Element<T extends Number, Y extends Number> {
 
