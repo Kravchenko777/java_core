@@ -5,7 +5,7 @@ public class PairObject {
     private Object valueT;
     private Object valueU;
 
-    public PairObject(Integer valueT, Integer valueU){
+    public PairObject(Object valueT, Object valueU){
         this.valueT = valueT;
         this.valueU = valueU;
     }

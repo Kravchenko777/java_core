@@ -56,7 +56,8 @@ public class ExtendExample {
         new Element<Double, Long>(Double.valueOf("100"), 200l).getSumm();
 
         System.out.println(elementIntInt.gt(new Element<Integer, Integer>(50, 70)));
-        // System.out.println(elementIntInt.lt(new Element<Integer, Integer>(150, 270)));
+
+        System.out.println(elementIntInt.lt(new Element<Integer, Integer>(150, 270)));
 
         System.out.println(elementIntInt.gt(new Element<Double, Double>(50d, 70d)));
         System.out.println(elementIntInt.lt(new Element<Double, Double>(150d, 270d)));
