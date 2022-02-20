@@ -1,6 +1,4 @@
-package lesson3.homework.change;
-
-import java.util.Arrays;
+package lesson3.homework.task1_2_change;
 
 public class ChangeApp {
 

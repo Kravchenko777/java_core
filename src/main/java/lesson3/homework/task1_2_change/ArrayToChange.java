@@ -1,4 +1,4 @@
-package lesson3.homework.change;
+package lesson3.homework.task1_2_change;
 
 import java.util.Arrays;
 
