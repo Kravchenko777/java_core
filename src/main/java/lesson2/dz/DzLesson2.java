@@ -1,4 +1,4 @@
-package lesson3.dz;
+package lesson2.dz;
 
 public class DzLesson2 {
 
