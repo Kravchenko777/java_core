@@ -1,5 +1,8 @@
 package lesson3;
 
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.function.Consumer;
@@ -14,11 +17,32 @@ public class LambdaExample {
         Function<String, Integer> function = new Function<String, Integer>() {
             @Override
             public Integer apply(String s) {
+                return s.length();
+            }
+        };
+
+        Function<String, Integer> function3 = (str)->{
+            return str.length();
+        };
+
+
+        Function<String, Integer> function2 = new Function<String, Integer>() {
+            @Override
+            public Integer apply(String s) {
                 return s.length() + 100;
             }
         };
 
         System.out.println(function.apply("123"));
+
+        Function<Double, Integer> function1 = new Function<Double, Integer>() {
+            @Override
+            public Integer apply(Double aDouble) {
+                return aDouble.intValue();
+            }
+        };
+
+        System.out.println(function1.apply(20D));
 
 
         Predicate<String> predicate = new Predicate<String>() {
@@ -39,10 +63,10 @@ public class LambdaExample {
 
         consumer.accept("123");
 
-        Supplier<String> supplier = new Supplier<String>() {
+        Supplier<Date> supplier = new Supplier<Date>() {
             @Override
-            public String get() {
-                return new Date().toString();
+            public Date get() {
+                return new Date();
             }
         };
 
@@ -50,6 +74,7 @@ public class LambdaExample {
 
 
         ArrayList<String> arrayList = new ArrayList<>(100);
+
 
     }
 }

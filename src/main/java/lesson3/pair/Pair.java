@@ -29,4 +29,8 @@ public class Pair <T,U>{
     public void setValueU(U valueU) {
         this.valueU = valueU;
     }
+
+    public Boolean test(Pair<T,U> pair){
+        return true;
+    }
 }
