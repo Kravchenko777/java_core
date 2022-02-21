@@ -13,6 +13,7 @@ public class PairDemo {
 
         Pair<String, Integer> pair = new Pair<>("123",123);
         pair.setValueT("555");
+        pair.test(new Pair<String,Integer>("",123));
 
 
         new Pair<PairString,PairInteger>(new PairString("1","2"), new PairInteger(1,2));
