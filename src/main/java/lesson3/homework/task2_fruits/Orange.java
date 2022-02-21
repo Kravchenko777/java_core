@@ -6,9 +6,12 @@ package lesson3.homework.task2_fruits;
 public class Orange extends Fruit {
 
     // вес апельсина – 1.0f
-    private static float WEIGHT = 1.5f;
+    private static final float WEIGHT = 1.5f;
 
-    public static float getWeight() {
-        return WEIGHT;
+    // название фрукта
+    private static final String NAME = "Апельсин";
+
+    public Orange() {
+        super(NAME, WEIGHT);
     }
 }

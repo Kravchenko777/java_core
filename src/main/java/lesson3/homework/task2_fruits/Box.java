@@ -8,6 +8,9 @@ import java.util.ArrayList;
  */
 public class Box<T extends Fruit> {
 
+    // погрешность для сравнения массы коробок
+    private static final float EPSILON = 0.001f;
+
     /**
      * Для хранения фруктов внутри коробки можно использовать ArrayList
      */
@@ -20,22 +23,24 @@ public class Box<T extends Fruit> {
     /**
      * Сделать метод getWeight(), который высчитывает вес коробки, зная вес одного фрукта и их количество
      *
-     * @return вес коробки
+     * @return вес коробки. 0 - если коробка пустая
      */
     public float getWeight() {
-        return T.getWeight() * fruits.size();
+        if (!fruits.isEmpty())
+            return fruits.get(0).getWeight() * fruits.size();
+        else return 0;
     }
 
     /**
      * Внутри класса Box сделать метод compare(),
      * который позволяет сравнить текущую коробку с той, которую подадут в compare() в качестве параметра.
      * Можно сравнивать коробки с яблоками и апельсинами
-     * Сравниваем с погрешностью 0.001
+     * Сравниваем с погрешностью EPSILON
      *
      * @return true – если их массы равны, false в противоположном случае.
      */
     public boolean compare(Box<? extends Fruit> anotherBox) {
-        return Math.abs(this.getWeight() - anotherBox.getWeight()) < 0.001;
+        return Math.abs(this.getWeight() - anotherBox.getWeight()) < EPSILON;
     }
 
     /**

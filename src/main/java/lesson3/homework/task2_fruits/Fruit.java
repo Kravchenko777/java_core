@@ -5,9 +5,20 @@ package lesson3.homework.task2_fruits;
  */
 public abstract class Fruit {
 
-    private static float WEIGHT = 10.0f;
+    private final float weight;
+    private final String name;
 
-    public static float getWeight() {
-        return WEIGHT;
+    public float getWeight() {
+        return weight;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Fruit(String name, float weight) {
+        this.weight = weight;
+        this.name = name;
+    }
+
 }
