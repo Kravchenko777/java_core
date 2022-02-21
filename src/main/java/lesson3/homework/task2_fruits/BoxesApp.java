@@ -4,24 +4,30 @@ import java.util.ArrayList;
 
 public class BoxesApp {
 
+    static final float APPLE_WEIGHT = 1.0f;
+    static final float ORANGE_WEIGHT = 1.5f;
+
     public static void main(String[] args) {
 
         // собираем урожай яблок с дерева №1
+        // мы знаем вес каждого яблока
         ArrayList<Apple> apples1 = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             apples1.add(new Apple());
         }
 
         // собираем урожай яблок с дерева №2
+        // мы не знаем вес каждого яблока, поэтому используем вес по-умолчанию
         ArrayList<Apple> apples2 = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
-            apples2.add(new Apple());
+            apples2.add(new Apple(APPLE_WEIGHT));
         }
 
         // собираем урожай апельсинов
+        // мы знаем вес каждого апельсина
         ArrayList<Orange> oranges = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            oranges.add(new Orange());
+            oranges.add(new Orange(ORANGE_WEIGHT));
         }
 
         // кладем яблоки в коробку №1

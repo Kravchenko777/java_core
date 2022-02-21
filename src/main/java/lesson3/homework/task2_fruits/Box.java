@@ -16,19 +16,23 @@ public class Box<T extends Fruit> {
      */
     private final ArrayList<T> fruits;
 
+
     public Box(ArrayList<T> fruits) {
         this.fruits = fruits;
     }
 
     /**
      * Сделать метод getWeight(), который высчитывает вес коробки, зная вес одного фрукта и их количество
+     * Перебираем все яблоки в коробке и складываем их веса.
      *
      * @return вес коробки. 0 - если коробка пустая
      */
     public float getWeight() {
-        if (!fruits.isEmpty())
-            return fruits.get(0).getWeight() * fruits.size();
-        else return 0;
+        float sumWeight = 0f;
+        for (T fruit : fruits) {
+            sumWeight += fruit.getWeight();
+        }
+        return sumWeight;
     }
 
     /**
