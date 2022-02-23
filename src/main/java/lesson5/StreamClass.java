@@ -109,28 +109,8 @@ public class StreamClass {
         }
 
 
-        System.out.println();
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
-        try (PipedInputStream pipedInputStream = new PipedInputStream();
-             PipedOutputStream pipedOutputStream = new PipedOutputStream(pipedInputStream)) {
-            for (int i = 0; i < 10; i++) {
-                pipedOutputStream.write(i);
-            }
-
-            int x =0;
-            while (x != -1) {
-                x = pipedInputStream.read();
-                System.out.print(x + " ");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
-
-
-
 
 
 }

@@ -22,6 +22,13 @@ public class FileClass {
             System.out.println("file name: " + str);
         }
 
+        for (String str: directoryCSV.list((file,name)->{
+            return name.contains("test");
+        })
+        ){
+            System.out.println("file name: " + str);
+        }
+
 
 
         FileInputStream fi = null;
@@ -47,12 +54,7 @@ public class FileClass {
 
         }
 
-        for (String str: directoryCSV.list((file,name)->{
-            return name.contains("test");
-        })
-        ){
-            System.out.println("file name: " + str);
-        }
+
 
     }
 }
