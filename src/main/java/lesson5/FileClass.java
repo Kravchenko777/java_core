@@ -1,10 +1,10 @@
 package lesson5;
 
-import java.io.File;
+import java.io.*;
 
 public class FileClass {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         File fileCSV = new File("src/main/resources/test.csv");
 
         System.out.println(fileCSV.getName());
@@ -22,6 +22,37 @@ public class FileClass {
             System.out.println("file name: " + str);
         }
 
+
+
+        FileInputStream fi = null;
+        try {
+            fi = new FileInputStream(fileCSV);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            fi.close();
+        }
+
+
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
+        int i;
+        File resultCSV = new File("src/main/resources/result.csv");
+        try (FileInputStream fileInputStream = new FileInputStream(fileCSV);
+             FileOutputStream fileOutputStream = new FileOutputStream(resultCSV);){
+            do {
+                i = fileInputStream.read();
+                System.out.println((char) i);
+                fileOutputStream.write(i);
+            } while (i!=-1);
+
+        }
+
+        for (String str: directoryCSV.list((file,name)->{
+            return name.contains("test");
+        })
+        ){
+            System.out.println("file name: " + str);
+        }
 
     }
 }
