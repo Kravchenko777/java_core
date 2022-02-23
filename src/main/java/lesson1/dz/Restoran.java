@@ -16,7 +16,7 @@ public class Restoran {
     public String doIt(Group group){
         result = "Группа номер: "+ group.getName()+ " " + '\n';
         for(Person person: group.getPeoples()){
-            result += "Имя клиента: " + person.getName()+ " " + '\n';
+            result += "имя клиента: " + person.getName()+ " " + '\n';
             int value = person.getCanEatCalories();
             testBreakfast(value);
             testDinner(value);
