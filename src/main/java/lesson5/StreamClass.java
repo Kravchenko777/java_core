@@ -47,7 +47,7 @@ public class StreamClass {
         }
         System.out.println();
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
-        try(BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream("src/main/resources/demo.txt"),8192);
+        try(BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream("src/main/resources/demo.txt"));
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream("src/main/resources/demo.txt"),8192);){
 
             for (int i = 0; i < 10000; i++) {

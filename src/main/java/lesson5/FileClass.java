@@ -44,7 +44,8 @@ public class FileClass {
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++");
         int i;
         File resultCSV = new File("src/main/resources/result.csv");
-        try (FileInputStream fileInputStream = new FileInputStream(fileCSV);
+        FileInputStream fileInputStream = new FileInputStream(fileCSV);
+        try (fileInputStream;
              FileOutputStream fileOutputStream = new FileOutputStream(resultCSV);){
             do {
                 i = fileInputStream.read();
@@ -52,6 +53,8 @@ public class FileClass {
                 fileOutputStream.write(i);
             } while (i!=-1);
 
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
 
