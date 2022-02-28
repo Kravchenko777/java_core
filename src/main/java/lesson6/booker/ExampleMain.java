@@ -66,7 +66,7 @@ public class ExampleMain {
         RequestBody createBookingBody = RequestBody.create(jsonBody, MediaType.parse("application/json"));
         request = new Request.Builder()
                 .url("https://restful-booker.herokuapp.com/booking")
-                .addHeader("accept", "application/json") // <- без этого не будет работать, в доках нет.
+                .addHeader("accept", "application/json")
                 .post(createBookingBody)
                 .build();
 
