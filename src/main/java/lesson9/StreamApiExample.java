@@ -1,8 +1,6 @@
 package lesson9;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamApiExample {
@@ -11,22 +9,41 @@ public class StreamApiExample {
 
 
     public static void main(String[] args) {
-        createList();
+       createList();
 
-       List<Integer> result = stringArrayList.stream()
+       Iterator<String> iterator = stringArrayList.iterator();
+       Set<Integer> filterList = new HashSet<>();
+       while (iterator.hasNext()){
+           String str = iterator.next();
+           if(str.length() < 3) filterList.add(Integer.valueOf(str));
+       }
+
+        System.out.println(filterList);
+
+       HashSet<Integer> filterList2 = new HashSet<>();
+       for (String str: stringArrayList){
+           if(str.length() < 3) filterList2.add(Integer.valueOf(str));
+       }
+
+        System.out.println(filterList2);
+
+
+       Set<Integer> filterList3 = stringArrayList.stream()
                .filter((str)->{
-                    return str.length() > 100;
+                    return str.length() < 3;
                 })
-               .map((str)-> str.length())
-               .collect(Collectors.toList());
+               .map((str)-> Integer.valueOf(str))
+               .collect(Collectors.toSet());
+
+        System.out.println(filterList3);
 
     }
 
     public static void createList(){
 
         Random random = new Random();
-        for(int i =0;i<10000;i++){
-            stringArrayList.add(String.valueOf(random.nextInt(1000)));
+        for(int i =0;i<100000;i++){
+            stringArrayList.add(String.valueOf(random.nextInt(1000000)));
         }
 
     }

@@ -1,6 +1,7 @@
 package lesson9;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -17,7 +18,6 @@ public class FunctionalInterfaceExample {
                 return s.length();
             }
         };
-
         System.out.println(function.apply("1111111111"));
 
         Predicate<String> predicate = new Predicate<String>() {
@@ -26,7 +26,6 @@ public class FunctionalInterfaceExample {
                 return s.length()>100;
             }
         };
-
         System.out.println(predicate.test("1111111111"));
 
         Consumer<String> consumer = new Consumer<String>() {
@@ -35,7 +34,6 @@ public class FunctionalInterfaceExample {
                 System.out.println(s.length());
             }
         };
-
         consumer.accept("1111111111");
 
         Supplier<Date> supplier = new Supplier<Date>() {
@@ -44,9 +42,15 @@ public class FunctionalInterfaceExample {
                 return new Date();
             }
         };
-
         System.out.println(supplier.get());
 
+        Comparator<Integer> comparator = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1-o2;
+            }
+        };
+        System.out.println(comparator.compare(100,66));
 
     }
 }
