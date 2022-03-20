@@ -4,88 +4,72 @@ import java.sql.*;
 
 public class Demo {
 
-    private static Connection connection;
-    private static Statement statement;
-    private static PreparedStatement preparedStatement;
 
     // Показать singleton DriveManager-a
-    public static void main(String[] args)  {
-        try {
-            // load JDBC driver
-            Class.forName("org.sqlite.JDBC");
+    public static void main(String[] args) throws SQLException {
 
-            //protocol - db type - db location
-            connection = DriverManager.getConnection("jdbc:sqlite:lesson8db.db");
-            statement = connection.createStatement();
+        // load JDBC driver
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try ( Connection connection = DriverManager.getConnection("jdbc:sqlite:lesson8db.db");
+              Statement statement = connection.createStatement()){
 
             // Пример очистки при запуске
-            performDropTable();
+            performDropTable(statement);
 
             // Пример создания БД
-            performCreateDB();
+            performCreateDB(statement);
 
             // Примеры вставки записей, autoCommit
-            populateDB();
+            populateDB(statement, connection);
 
             // Пример обновления записей
-            performUpdateDb();
+            performUpdateDb(statement);
 
             // Удаление записей
-            performDeleteRows();
+            performDeleteRows(statement);
 
             // Демонстрация prepared statement
-            performPreparedStatement();
+            performPreparedStatement(connection);
 
             // Пример вычитки данных
-            readStudentsFromDB();
+            readStudentsFromDB(statement);
 
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                preparedStatement.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            try {
-                statement.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            try {
-                connection.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
         }
 
     }
 
-    private static void performPreparedStatement() throws SQLException {
+    private static void performPreparedStatement(Connection connection) throws SQLException {
         // Демонстрация prepared statement
-        preparedStatement = connection.prepareStatement("INSERT INTO students (name, score) VALUES (?,?)");
-        for (int i = 1; i < 10; i++) {
-            preparedStatement.setString(1,"ВАСЯ" + i);
-            preparedStatement.setInt(2,i);
+        try(PreparedStatement  preparedStatement = connection.prepareStatement("INSERT INTO students (name, score) VALUES (?,?)")) {
+
+            for (int i = 1; i < 10; i++) {
+                preparedStatement.setString(1, "ВАСЯ" + i);
+                preparedStatement.setInt(2, i);
 //                preparedStatement.execute();
-            preparedStatement.addBatch();
+                preparedStatement.addBatch();
+            }
+            preparedStatement.executeBatch();
         }
-        preparedStatement.executeBatch();
     }
 
-    private static void performDeleteRows() throws SQLException {
+    private static void performDeleteRows(Statement statement) throws SQLException {
         statement.executeUpdate("DELETE FROM students WHERE id > 9000");
     }
 
-    private static void performUpdateDb() throws SQLException {
-        performUpdateStudents("UPDATE students SET score = 0 WHERE id > 1");
+    private static void performUpdateDb(Statement statement) throws SQLException {
+        performUpdateStudents("UPDATE students SET score = 0 WHERE id > 1", statement);
     }
 
-    private static void performUpdateStudents(String s) throws SQLException {
+    private static void performUpdateStudents(String s, Statement statement) throws SQLException {
         statement.executeUpdate(s);
     }
 
-    private static void populateDB() throws SQLException {
+    private static void populateDB(Statement statement, Connection connection) throws SQLException {
         /*-------------- Демонстрация простой вставки ----------- */
         //            for (int i = 1; i < 11; i++) {
         //                statement.executeUpdate(
@@ -116,16 +100,16 @@ public class Demo {
         System.out.println(System.currentTimeMillis() - start);
     }
 
-    private static void performDropTable() throws SQLException {
+    private static void performDropTable(Statement statement) throws SQLException {
         statement.executeUpdate("DROP TABLE IF EXISTS students");
     }
 
-    private static void performCreateDB() throws SQLException {
+    private static void performCreateDB(Statement statement) throws SQLException {
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "name STRING, score INTEGER NOT NULL);");
     }
 
-    private static void readStudentsFromDB() throws SQLException {
+    private static void readStudentsFromDB(Statement statement) throws SQLException {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM students");
         // В данном случае result set выгружает всю результирующую выборку
         while (resultSet.next()) {
