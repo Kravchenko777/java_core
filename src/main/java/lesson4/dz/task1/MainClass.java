@@ -12,7 +12,7 @@ public class MainClass {
         createStringArray();
 
         System.out.println("List size=  " + stringArrayList.size());
-        HashSet<String> targetSet = new HashSet<String>(stringArrayList);
+        HashSet<String> targetSet = new HashSet<>(stringArrayList);
         System.out.println("Set size=  " + targetSet.size());
 
         HashMap<String,Integer> result = new HashMap<>();

@@ -44,6 +44,8 @@ public class AccuWeatherProvider implements WeatherProvider {
             // TODO: Сделать в рамках д/з вывод более приятным для пользователя.
             //  Создать класс WeatherResponse, десериализовать ответ сервера в экземпляр класса
             //  Вывести пользователю только текущую температуру в C и сообщение (weather text)
+        } else if(periods.equals(Periods.FIVE_DAYS)){
+
         }
     }
 
