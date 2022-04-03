@@ -1,6 +1,7 @@
 package lesson8.presentation;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Demo {
 
@@ -62,7 +63,7 @@ public class Demo {
     }
 
     private static void performUpdateDb(Statement statement) throws SQLException {
-        performUpdateStudents("UPDATE students SET score = 0 WHERE id > 1", statement);
+        performUpdateStudents("UPDATE students SET score = 0 WHERE id > 100", statement);
     }
 
     private static void performUpdateStudents(String s, Statement statement) throws SQLException {
@@ -112,12 +113,29 @@ public class Demo {
     private static void readStudentsFromDB(Statement statement) throws SQLException {
         ResultSet resultSet = statement.executeQuery("SELECT * FROM students");
         // В данном случае result set выгружает всю результирующую выборку
+        ArrayList<MyClass> arrayList = new ArrayList<>();
         while (resultSet.next()) {
             System.out.println(
-                resultSet.getInt(1) + " | " +
-                    resultSet.getString(2) + " | " +
-                    resultSet.getDouble("score") + " | "
+                resultSet.getInt(1) + " - " +
+                    resultSet.getString(2) + " - " +
+                    resultSet.getDouble("score") + " - "
+
+
             );
+            arrayList.add(new MyClass(resultSet.getInt(1),resultSet.getString(2),resultSet.getDouble("score")));
+        }
+        System.out.println("");
+    }
+
+    public static class MyClass{
+        private Integer id;
+        private String name;
+        private Double score;
+
+        public MyClass(Integer id, String name, Double score) {
+            this.id = id;
+            this.name = name;
+            this.score = score;
         }
     }
 
