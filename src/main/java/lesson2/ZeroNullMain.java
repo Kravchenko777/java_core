@@ -9,11 +9,12 @@ public class ZeroNullMain {
 
     public static void main(String[] args) throws IOException {
 
-        Integer result = 0;
-        Integer a = 100;
-        Integer b = 1000;
+/*        Integer result = 0;
+        Integer a = 0;
+        Integer b = 100;
 
         try{
+
             result = b/a;
         } catch (NullPointerException | ArithmeticException ae){
             ae.printStackTrace();
@@ -21,14 +22,17 @@ public class ZeroNullMain {
                 System.out.println(stack.toString());
             }
             result = 100;
+        } finally {
+            result = 1000;
         }
 
-        System.out.println(result);
+        System.out.println(result);*/
 
         BufferedReader br = null;
         try {
 
             br = new BufferedReader(new FileReader("12312323"));
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -36,7 +40,7 @@ public class ZeroNullMain {
         }
 
         try(BufferedReader br1 = new BufferedReader(new FileReader("12312323"))){
-
+            br1.readLine();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

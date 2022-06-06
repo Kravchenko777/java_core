@@ -10,7 +10,7 @@ public class MyTestClass {
         //
     }
 
-    public void test2() throws MyException {
+    public void test2() {
         throw new NullPointerException();
     }
 
