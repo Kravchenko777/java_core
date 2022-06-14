@@ -10,6 +10,10 @@ public class Pair <T,U>{
         this.valueU = valueU;
     }
 
+    public void test(){
+        System.out.println("Что то");
+    }
+
     public void summ(){
         System.out.println("key: " +valueT.toString() + " value: " + valueU.toString());
     }

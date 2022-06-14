@@ -34,6 +34,7 @@ public class DzLesson2 {
 
     static void checkValue(String[][] array) throws MyArraySizeException{
         if(array.length!=sizeA || array[0].length!=sizeB) throw new MyArraySizeException();
+
     }
 
     static Integer getSumm(String[][] array) throws MyArrayDataException,MyArraySizeException{

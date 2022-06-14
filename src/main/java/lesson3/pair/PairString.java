@@ -17,4 +17,9 @@ public class PairString {
     public String getSumm(){
         return valueT + valueU;
     }
+
+    @Override
+    public String toString() {
+        return "PairString Test";
+    }
 }

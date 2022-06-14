@@ -5,10 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class LambdaExample {
 
@@ -22,8 +19,11 @@ public class LambdaExample {
         };
 
         Function<String, Integer> function3 = (str)->{
-            return str.length();
+            Integer value = str.length();
+            return value;
         };
+
+
 
 
         Function<String, Integer> function2 = new Function<String, Integer>() {

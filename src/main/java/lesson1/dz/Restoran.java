@@ -28,18 +28,19 @@ public class Restoran {
     }
 
     private void testBreakfast(int value){
-        if(value<breakfast) result += "Завтрак - наелся "+ '\n';
+        if(value<breakfast) result = result + "Завтрак - наелся "+ '\n';
+        else result += "Завтрак - не наелся "+ '\n';
 
     }
 
     private void testDinner(int value){
         if(value<dinner + 50) result += "Ужин - наелся "+ '\n';
-
+        else result += "Ужин - не наелся "+ '\n';
     }
 
     private void testLunch(int value){
         if(value<lunch - 100) result += "Обед - наелся "+ '\n';
-
+        else result += "Обед - не наелся "+ '\n';
     }
 
 }

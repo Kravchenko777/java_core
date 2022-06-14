@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import texasholdem.Game;
 import texasholdem.PlayingCards;
 
+import java.util.Optional;
+
 public class MyTest {
 
     @Test
@@ -29,6 +31,13 @@ public class MyTest {
         game.tern();
         game.river();
         game.showTable();
+    }
+
+    @Test
+    void test(){
+        String strnull = null;
+        Optional<String> str = Optional.of(strnull);
+        System.out.println(str.get());
     }
 
 

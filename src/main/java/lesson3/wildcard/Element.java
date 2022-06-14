@@ -1,9 +1,12 @@
 package lesson3.wildcard;
 
+import java.io.Serializable;
+
 public class Element<T extends Number, Y extends Number> {
 
         private T telement;
         private Y yelement;
+        //static T value;
 
         public Element(T valueT, Y valueY) {
             this.telement = valueT;

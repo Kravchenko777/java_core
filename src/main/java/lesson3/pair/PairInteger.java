@@ -17,4 +17,9 @@ public class PairInteger {
     public Integer getSumm(){
         return valueT + valueU;
     }
+
+    @Override
+    public String toString() {
+        return "PairInteger Test";
+    }
 }

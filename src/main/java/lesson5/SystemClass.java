@@ -15,12 +15,14 @@ public class SystemClass {
         char c;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter pw = new PrintWriter(System.out, true);
+        System.out.println("Ввод по символьно");
         do{
             c = (char) br.read();
             pw.println(c);
         }while (c !='q');
 
         String str;
+        System.out.println("Ввод слова");
         BufferedReader brString = new BufferedReader(new InputStreamReader(System.in));
         do{
             str =  brString.readLine();

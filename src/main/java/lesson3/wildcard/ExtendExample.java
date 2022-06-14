@@ -8,7 +8,7 @@ public class ExtendExample {
 
         new Element<Long, Integer>(100L, 200).getSumm();
 
-        new Element<Double, Long>(Double.valueOf("100"), 200l).getSumm();
+        new Element<Double, Long>(Double.valueOf("100"), 200L).getSumm();
 
         System.out.println(elementIntInt.gt(new Element<Integer, Integer>(50, 70)));
 
