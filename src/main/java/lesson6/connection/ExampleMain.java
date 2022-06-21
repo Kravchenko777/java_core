@@ -15,7 +15,7 @@ public class ExampleMain {
         System.out.println(InetAddress.getByName("google.com"));
         Arrays.stream(InetAddress.getAllByName("google.com")).forEach(System.out::println);
 
-        try (Socket socketGoogle = new Socket(InetAddress.getByName("google.com"),8099);
+        try (Socket socketGoogle = new Socket(InetAddress.getByName("google.com"),443);
              InputStream inputStream = socketGoogle.getInputStream();
              OutputStream outputStream = socketGoogle.getOutputStream()){
 

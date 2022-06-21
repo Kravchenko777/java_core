@@ -68,8 +68,6 @@ public class StreamClass {
             System.out.println(dataInputStream.readInt());
             System.out.println(dataInputStream.readLong());
             System.out.println(dataInputStream.readUTF());
-
-
         };
 
         System.out.println();

@@ -31,7 +31,7 @@ public class ExampleMain {
 
         // Тело сообщения возвращается методом body объекта Response
         String body = response.body().string();
-
+        System.out.println(body);
         System.out.println(response.code());
         System.out.println(response.headers());
         System.out.println(response.isRedirect());

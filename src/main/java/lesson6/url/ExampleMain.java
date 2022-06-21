@@ -16,7 +16,7 @@ public class ExampleMain {
         System.out.println(url.getDefaultPort());
         System.out.println(url.getQuery());
         System.out.println(url.getFile());
-
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println(url2.getProtocol());
         System.out.println(url2.getHost());
         System.out.println(url2.getPort());

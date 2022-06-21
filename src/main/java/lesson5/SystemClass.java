@@ -16,9 +16,11 @@ public class SystemClass {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter pw = new PrintWriter(System.out, true);
         System.out.println("Ввод по символьно");
+        System.out.print("Текст");
         do{
             c = (char) br.read();
-            pw.println(c);
+            pw.print(c);
+            pw.flush();
         }while (c !='q');
 
         String str;
