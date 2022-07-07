@@ -23,12 +23,23 @@ import java.util.List;
 /* Презентация работы с библиотекой Jackson */
 public class Demo {
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Student student = new Student("Ivan", 4.87);
         String jsonStudent = objectMapper.writeValueAsString(student);
         System.out.println(jsonStudent);
+        simpleWriteJsonToFile();
+        simpleWriteJsonAsString();
+        simpleReadJsonFromString();
+        try {
+            readObjectWithUnknownProperties();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
+        readValuesToList();
+        navigatingByJsonAsNodeTree();
+        useJsonCreatorAnnotation();
     }
 
     private static void simpleWriteJsonToFile() throws IOException {
@@ -70,7 +81,7 @@ public class Demo {
     private static void navigatingByJsonAsNodeTree() throws JsonProcessingException {
         String jsonString = "{\"name\":\"Ivan\", \"education\": " +
                 "{\"school\": \"School #52\", \"university\": " +
-                "{\"degree\": \"master\", \"name\": null}}}";
+                "{\"degree\": \"master\", \"name\": \"NAME\"}}}";
 
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode universityName = objectMapper.readTree(jsonString).at("/education/university/name");
@@ -86,7 +97,7 @@ public class Demo {
 }
 
 //@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonRootName(value = "car")
+@JsonRootName(value = "MyCar")
 class Car {
     private String color;
 
