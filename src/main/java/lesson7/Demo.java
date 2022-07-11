@@ -96,7 +96,7 @@ public class Demo {
     }
 }
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonRootName(value = "MyCar")
 class Car {
     private String color;
