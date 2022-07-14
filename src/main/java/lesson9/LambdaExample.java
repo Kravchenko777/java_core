@@ -16,6 +16,14 @@ public class LambdaExample {
         };
         System.out.println(function.apply("1111111111"));
 
+        Function<String, Integer> function2 = (str)-> str.length();
+
+        System.out.println(function2.apply("1111111111"));
+
+        Function<String, Integer> function3 = String::length;
+        System.out.println(function3.apply("1111111111"));
+
+        Function<String, Integer> function4 = Integer::new;
 
         Predicate<String> predicate = (str)->{
             return str.length() > 100;
@@ -36,5 +44,16 @@ public class LambdaExample {
         Comparator<Integer> comparator = ((o1, o2) -> o1-o2);
         System.out.println(comparator.compare(100,77));
 
+
+        methodExample(function);
+
+        methodExample(str->{
+            return str.length() +100;
+        });
+
+    }
+
+    public static void methodExample(Function<String, Integer> function){
+        function.apply("12313123123");
     }
 }

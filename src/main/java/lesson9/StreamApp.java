@@ -127,7 +127,7 @@ public class StreamApp {
         personList.stream().map(person -> person.name.toUpperCase()).forEach(System.out::println);
         System.out.println("+++++++++++++++++++++++++++++++++++++++");
 
-        personList.stream().map(person -> person.name).peek(name -> name.toUpperCase()).count();
+        personList.stream().map(person -> person.name).peek(System.out::println).count();
         System.out.println("+++++++++++++++++++++++++++++++++++++++");
 
         personList.stream().map(person -> person.name.toUpperCase()).limit(10).forEach(System.out::println);
