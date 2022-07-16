@@ -12,13 +12,13 @@ public class FunctionalInterfaceExample {
 
     public static void main(String[] args) {
 
-        Function<String, Integer> function = new Function<String, Integer>() {
+        Function<String, Integer> FunctionTest = new Function<String, Integer>() {
             @Override
             public Integer apply(String s) {
-                return s.length();
+                return s.length() +100;
             }
         };
-        System.out.println(function.apply("1111111111"));
+        System.out.println(FunctionTest.apply("1111111111"));
 
         Predicate<String> predicate = new Predicate<String>() {
             @Override

@@ -11,9 +11,13 @@ public class LambdaExample {
 
     public static void main(String[] args) {
 
-        Function<String, Integer> function = (str)->{
-            return str.length();
+
+        Integer i = 100;
+
+        Function<String, Integer> function = (String str)->{
+            return str.length() + i;
         };
+
         System.out.println(function.apply("1111111111"));
 
         Function<String, Integer> function2 = (str)-> str.length();
@@ -38,12 +42,15 @@ public class LambdaExample {
 
 
         Supplier<Date> supplier = () -> new Date();
+        Supplier<Date> supplier2 = Date::new;
         System.out.println(supplier.get());
 
 
-        Comparator<Integer> comparator = ((o1, o2) -> o1-o2);
-        System.out.println(comparator.compare(100,77));
+        Comparator<Integer> comparator = ((o1, o2) -> o1+o2);
+        System.out.println(comparator.compare(Integer.MIN_VALUE,Integer.MIN_VALUE));
 
+
+        Integer intr = Integer.MIN_VALUE - Integer.MIN_VALUE;
 
         methodExample(function);
 

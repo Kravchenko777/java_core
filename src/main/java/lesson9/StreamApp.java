@@ -184,5 +184,6 @@ public class StreamApp {
         Map<Integer, List<Person>> integerListMap = personList.stream().collect(
                 Collectors.groupingBy(person-> person.age));
 
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
     }
 }

@@ -2,6 +2,7 @@ package lesson9;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamApiExample {
 
@@ -12,6 +13,7 @@ public class StreamApiExample {
        createList();
 
        Iterator<String> iterator = stringArrayList.iterator();
+
        Set<Integer> filterList = new HashSet<>();
        while (iterator.hasNext()){
            String str = iterator.next();
@@ -28,12 +30,13 @@ public class StreamApiExample {
         System.out.println(filterList2);
 
 
-       Set<Integer> filterList3 = stringArrayList.stream()
-               .filter((str)->{
-                    return str.length() < 3;
-                })
-               .map((str)-> Integer.valueOf(str))
-               .collect(Collectors.toSet());
+       Stream<Integer> stream= stringArrayList.parallelStream()
+               .filter((str)-> str.length() <3)
+               .map((str)-> Integer.valueOf(str));
+
+        Set<Integer> filterList3 = stream.collect(Collectors.toSet());
+
+        stream.collect(Collectors.toSet());
 
         System.out.println(filterList3);
 
